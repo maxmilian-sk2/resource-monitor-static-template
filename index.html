@@ -59,7 +59,13 @@
         </header>
 
         <!-- Screen Selector for screens "md" and narrower -->
-        <div class="lg:hidden z-30 w-full h-18 mb-5 bg-slate-950 border-b-1  border-neutral-700 shadow-lg">
+        <div class="lg:hidden flex flex-row justify-center items-center z-30 w-full h-18 mb-5 bg-slate-950 border-b-1  border-neutral-700 shadow-lg">
+            <div class="flex rounded-xl pt-1 size-11 justify-center items-center bg-gray-100/30 text-sky-500"><p><ion-icon name="desktop-outline" class="size-9"></ion-icon></p></div>
+            <div class="flex rounded-xl pt-1 ml-2 size-11 justify-center items-center text-gray-500"><p><ion-icon name="desktop-outline" class="size-9"></ion-icon></p></div>
+            <div class="flex rounded-xl pt-1 ml-2 size-11 justify-center items-center text-gray-500"><p><ion-icon name="desktop-outline" class="size-9"></ion-icon></p></div>
+            <div class="flex rounded-xl pt-1 ml-2 size-11 justify-center items-center text-gray-500"><p><ion-icon name="pie-chart-outline" class="size-9"></ion-icon></p></div>
+            <div class="flex rounded-xl pt-1 ml-2 size-11 justify-center items-center text-gray-500"><p><ion-icon name="grid-outline" class="size-9"></ion-icon></p></div>
+            <div class="flex rounded-xl pt-1 ml-2 size-11 justify-center items-center text-gray-500"><p><ion-icon name="search-outline" class="size-9"></ion-icon></p></div>
         </div>
 
         <!-- Main content -->
@@ -68,20 +74,38 @@
             <!-- Grid wrapper -->
             <div class="w-full md:pl-18 lg:pl-24 xl:pr-8 2xl:pr-12 flex flex-row grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 place-content-around gap-6">
 
-                <!-- Item example -->
-                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                <!-- Disk usage component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <p class="text-gray-100 font-bold text-2xl mb-2">Disk Usage:</p>
+                    <p class="text-gray-500 font-medium text-2xl mb-6">_______________</p>
                     <div>
-                        <div class="text-xl font-medium text-gray-50">Text</div>
-                        <p class="text-gray-100 ">Text text</p>
+                        <!-- Progress bar, modified from: https://flowbite.com/docs/components/progress/ -->
+                        <!-- Note: Reverse calculation -->
+                        <div class="flex justify-end w-72 h-10 bg-gradient-to-r from-green-600 from-10% via-yellow-500 to-90% to-red-600 rounded-full">
+                            <div class="w-72 h-10 bg-slate-800 rounded-r-full" style="width: 75%"></div>
+                        </div>
                     </div>
+                    <p class="text-gray-500 font-medium text-2xl mt-2">_______________</p>
+                    <p class="text-gray-100 text-2xl mt-2">25%</p>
+                    <p class="text-gray-500 font-medium text-base mt-0">___________________</p>
+                    <p class="text-gray-100 text-base mt-2">/dev/sda1</p>
+                    <p class="text-gray-100 text-base mt-2">50GiB of 200GiB used</p>
                 </div>
 
-                <!-- Item example -->
-                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                <!-- CPU usage component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <p class="text-gray-100 font-bold text-2xl mb-2">CPU Usage:</p>
+                    <p class="text-gray-500 font-medium text-2xl mb-6">_______________</p>
                     <div>
-                        <div class="text-xl font-medium text-gray-50">Text</div>
-                        <p class="text-gray-100 ">Text text</p>
+                        <!-- Gauge, modified from: https://gist.github.com/gquittet/77dd931ebfa7b8a73f2711faee0a7292 -->
+                        <!-- 0%: [calc(0deg-45deg)], 100%: [calc(180deg-45deg)]-->
+                        <div class="w-64 border-4 border-slate-900 relative flex aspect-[2] items-center justify-center overflow-hidden rounded-t-full bg-gradient-to-r from-green-600 from-10% via-yellow-500 to-90% to-red-600">
+                            <div class="size-64 absolute top-0 aspect-square w-full rotate-[calc(150deg-45deg)] bg-gradient-to-tr from-transparent from-50% to-slate-900 to-50% transition-transform duration-500"></div>
+                            <div class="size-64 absolute top-1/4 flex aspect-square w-3/4 justify-center rounded-full bg-slate-900"></div>
+                        </div>
                     </div>
+                    <p class="text-gray-500 font-medium text-2xl mt-4">_______________</p>
+                    <p class="text-gray-100 text-2xl mt-2">83%</p>
                 </div>
 
                 <!-- Item example -->
