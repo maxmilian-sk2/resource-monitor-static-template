@@ -1,0 +1,126 @@
+<!-- Static frontend prototype for https://github.com/maxmilian-sk2/php-projekt-26 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Temporary Tailwind connector -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+
+<!-- Document body -->
+<body class="max-w-screen justify-center min-w-screen min-h-screen bg-slate-950 bg-[radial-gradient(circle_at_10%_80%,#1e1b4b,transparent_15%),radial-gradient(circle_at_100%_15%,#4a044e,transparent_20%)]">
+
+
+    <!-- Screen Selector for screens "lg" and wider -->
+    <div class="hidden lg:block flex flex-col justify-items-center content-center pt-2 lg:z-30 lg:w-15 h-18 lg:h-96 lg:mb-0 lg:fixed lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:ml-4 lg:bg-sky-50/5 lg:backdrop-blur-xs lg:rounded-xl lg:border lg:border-neutral-700 lg:shadow-lg">
+        <div class="flex rounded-xl pt-1 size-11 justify-center items-center bg-gray-100/30 text-sky-500"><p><ion-icon name="desktop-outline" class="size-9"></ion-icon></p></div>
+        <div class="flex mt-2 rounded-xl size-11 justify-center items-center pt-1 hover:bg-gray-100/20 text-gray-500  hover:text-gray-100"><p><ion-icon name="desktop-outline" class="size-9"></ion-icon></p></div>
+        <div class="flex mt-2 rounded-xl size-11 justify-center items-center pt-1 hover:bg-gray-100/20 text-gray-500 text-gray-500  hover:text-gray-100"><p><ion-icon name="desktop-outline" class="size-9"></ion-icon></p></div>
+        <div class="flex mt-2 rounded-xl size-11 justify-center items-center pt-1 hover:bg-gray-100/20 text-gray-500 text-gray-500  hover:text-gray-100"><p><ion-icon name="pie-chart-outline" class="size-9"></ion-icon></p></div>
+        <div class="flex mt-2 rounded-xl size-11 justify-center items-center pt-1 hover:bg-gray-100/20 text-gray-500 text-gray-500  hover:text-gray-100"><p><ion-icon name="grid-outline" class="size-9"></ion-icon></p></div>
+        <div class="flex mt-2 rounded-xl size-11 justify-center items-center pt-1 hover:bg-gray-100/20 text-gray-500 text-gray-500  hover:text-gray-100"><p><ion-icon name="search-outline" class="size-9"></ion-icon></p></div>
+    </div>
+
+    <!-- Content wrapper, limits content to 1920px wide, centered -->
+    <div class="lg:flex min-w-screen min-h-screen max-w-[1920px] justify-center">
+
+        <!-- Header (all screens) -->
+         <header class="z-40 w-full max-w-[1920px] lg:fixed lg:h-16 lg:pl-4 lg:pr-4 lg:pt-2 lg:pb-2">
+            <div class="flex flex-col lg:flex-row w-full bg-slate-950 lg:bg-sky-50/5 lg:backdrop-blur-xs lg:h-full lg:rounded-xl border-b-1 lg:border border-neutral-700 shadow-lg pr-1">
+                <div class="hidden lg:flex items-center justify-center lg:justify-start lg:pl-3 lg:basis-64">
+                    <h1 class="text-stone-50"><ion-icon name="speedometer-outline" class="mr-1"></ion-icon>Resource Monitor</h1>
+                </div>
+                <nav class="flex flex-col lg:flex-row items-center justify-center lg:basis-full">
+                    <a href="/index.html" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                        Home
+                    </a>
+                    <a href="/xyz1.hzml" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                        Item2
+                    </a>
+                    <a href="/xyz2.html" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                        Item3
+                    </a>
+                    <a href="/xyz3.html" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                        Item4
+                    </a>
+                </nav>
+                <div class="flex items-center justify-center mb-2 lg:mb-0 lg:basis-64">
+                    <div class="mx-auto flex max-w-sm items-center mt-3 lg:mt-0">
+                    <div>
+                        <p class="text-stone-50">User Name
+                        <button class="rounded-full bg-sky-500 hover:bg-sky-700 ml-1 pl-3 pr-3 pt-1 pb-1">Log out</button></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Screen Selector for screens "md" and narrower -->
+        <div class="lg:hidden z-30 w-full h-18 mb-5 bg-slate-950 border-b-1  border-neutral-700 shadow-lg">
+        </div>
+
+        <!-- Main content -->
+        <main class="flex flex-col lg:flex-row lg:pt-24 max-w-screen">
+
+            <!-- Grid wrapper -->
+            <div class="w-full md:pl-18 lg:pl-24 xl:pr-8 2xl:pr-12 flex flex-row grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 place-content-around gap-6">
+
+                <!-- Item example -->
+                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <div>
+                        <div class="text-xl font-medium text-gray-50">Text</div>
+                        <p class="text-gray-100 ">Text text</p>
+                    </div>
+                </div>
+
+                <!-- Item example -->
+                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <div>
+                        <div class="text-xl font-medium text-gray-50">Text</div>
+                        <p class="text-gray-100 ">Text text</p>
+                    </div>
+                </div>
+
+                <!-- Item example -->
+                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <div>
+                        <div class="text-xl font-medium text-gray-50">Text</div>
+                        <p class="text-gray-100 ">Text text</p>
+                    </div>
+                </div>
+
+                <!-- Item example -->
+                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <div>
+                        <div class="text-xl font-medium text-gray-50">Text</div>
+                        <p class="text-gray-100 ">Text text</p>
+                    </div>
+                </div>
+
+                <!-- Item example -->
+                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <div>
+                        <div class="text-xl font-medium text-gray-50">Text</div>
+                        <p class="text-gray-100 ">Text text</p>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+
+        </footer>
+
+    </div>
+   
+    <!-- Include icon pack -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+</body>
+</html>
