@@ -1,4 +1,4 @@
-<!-- Static frontend prototype for https://github.com/maxmilian-sk2/php-projekt-26 -->
+<!-- Static frontend prototype for https://github.com/maxmilian-sk2/resource-monitor/ -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Temporary Tailwind connector -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <title>Resource Monitor</title>
 </head>
 
 <!-- Document body -->
@@ -77,43 +77,205 @@
                 <!-- Disk usage component -->
                 <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
                     <p class="text-gray-100 font-bold text-2xl mb-2">Disk Usage:</p>
-                    <p class="text-gray-500 font-medium text-2xl mb-6">_______________</p>
+                    <hr class="w-64 lg:w-80 border-t-2 border-gray-500 my-3">
                     <div>
-                        <!-- Progress bar, modified from: https://flowbite.com/docs/components/progress/ -->
-                        <!-- Note: Reverse calculation -->
-                        <div class="flex justify-end w-72 h-10 bg-gradient-to-r from-green-600 from-10% via-yellow-500 to-90% to-red-600 rounded-full">
-                            <div class="w-72 h-10 bg-slate-800 rounded-r-full" style="width: 75%"></div>
+                        <div class="flex flex-col items-center gap-4">
+
+                            <!-- AI use disclaimer: the SVG below was created using generative AI! -->
+                            <svg width="288" height="40" viewBox="0 0 288 40">
+                                <!-- Gradient -->
+                                <defs>
+                                    <linearGradient id="diskLineGradient" x1="8" y1="0" x2="280" y2="0" gradientUnits="userSpaceOnUse">
+                                        <stop offset="10%" stop-color="#16a34a" />
+                                        <stop offset="50%" stop-color="#eab308" />
+                                        <stop offset="90%" stop-color="#dc2626" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Outline -->
+                                <path
+                                    d="M 8 20 L 280 20"
+                                    fill="none"
+                                    stroke="#1e293b"
+                                    stroke-width="16"
+                                    stroke-linecap="round"
+                                />
+                                <!-- Progress -->
+                                <path
+                                    id="diskLine"
+                                    d="M 8 20 L 280 20"
+                                    fill="none"
+                                    stroke="url(#diskLineGradient)"
+                                    stroke-width="16"
+                                    stroke-linecap="round"
+                                    class="transition-all duration-500"
+                                />
+                            </svg>
+
                         </div>
                     </div>
-                    <p class="text-gray-500 font-medium text-2xl mt-2">_______________</p>
-                    <p class="text-gray-100 text-2xl mt-2">25%</p>
-                    <p class="text-gray-500 font-medium text-base mt-0">___________________</p>
+                    <p id="diskValue" class="text-gray-100 text-2xl mt-2">0%</p>
+                    <hr class="w-64 border-t border-gray-700 my-3">
+                    <p class="text-gray-100 text-base mt-2"><span id="diskUsed" style="color: #16a34a;">50GiB</span> used, 150GiB free</p>
                     <p class="text-gray-100 text-base mt-2">/dev/sda1</p>
-                    <p class="text-gray-100 text-base mt-2">50GiB of 200GiB used</p>
+                    <p class="text-gray-100 text-base mt-2">200GiB SSD</p>
+                    <script>
+                        const diskValue = 25;
+
+                        const diskLine = document.getElementById("diskLine");
+                        const diskText = document.getElementById("diskValue");
+                        const diskUsed = document.getElementById("diskUsed");
+
+                        const diskLength = diskLine.getTotalLength();
+
+                        diskLine.style.strokeDasharray = diskLength;
+                        diskLine.style.strokeDashoffset = diskLength;
+
+                        const diskOffset = diskLength * (1 - diskValue / 100);
+
+                        diskLine.style.strokeDashoffset = diskOffset;
+                        diskText.textContent = diskValue + "%";
+
+                        let txtColor;
+                        if (diskValue < 40) txtColor = "#16a34a";
+                        else if (diskValue < 70) txtColor = "#eab308";
+                        else txtColor = "#dc2626";
+                        diskUsed.style.color = txtColor;
+                    </script>
                 </div>
 
                 <!-- CPU usage component -->
                 <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
                     <p class="text-gray-100 font-bold text-2xl mb-2">CPU Usage:</p>
-                    <p class="text-gray-500 font-medium text-2xl mb-6">_______________</p>
+                    <hr class="w-64 lg:w-80 border-t-2 border-gray-500 my-3">
                     <div>
-                        <!-- Gauge, modified from: https://gist.github.com/gquittet/77dd931ebfa7b8a73f2711faee0a7292 -->
-                        <!-- 0%: [calc(0deg-45deg)], 100%: [calc(180deg-45deg)]-->
-                        <div class="w-64 border-4 border-slate-900 relative flex aspect-[2] items-center justify-center overflow-hidden rounded-t-full bg-gradient-to-r from-green-600 from-10% via-yellow-500 to-90% to-red-600">
-                            <div class="size-64 absolute top-0 aspect-square w-full rotate-[calc(150deg-45deg)] bg-gradient-to-tr from-transparent from-50% to-slate-900 to-50% transition-transform duration-500"></div>
-                            <div class="size-64 absolute top-1/4 flex aspect-square w-3/4 justify-center rounded-full bg-slate-900"></div>
+
+                        <div class="flex flex-col items-center gap-4">
+
+                            <!-- AI use disclaimer: the SVG below was created using generative AI! -->
+                            <svg width="256" height="128" viewBox="0 0 256 128">
+                                <!-- Gradient -->
+                                <defs>
+                                <linearGradient id="CPUgaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="10%" stop-color="#16a34a" />
+                                    <stop offset="50%" stop-color="#eab308" />
+                                    <stop offset="90%" stop-color="#dc2626" />
+                                </linearGradient>
+                                </defs>
+                                <!-- Outline -->
+                                <path
+                                d="M 16 128 A 112 112 0 0 1 240 128"
+                                fill="none"
+                                stroke="#1e293b"
+                                stroke-width="16"
+                                />
+                                <!-- Progress -->
+                                <path
+                                id="CPUgauge"
+                                d="M 16 128 A 112 112 0 0 1 240 128"
+                                fill="none"
+                                stroke="url(#CPUgaugeGradient)"
+                                stroke-width="16"
+                                stroke-linecap="round"
+                                class="transition-all duration-500"
+                                stroke-dasharray="351"
+                                stroke-dashoffset="351"
+                                />
+                            </svg>
+
                         </div>
+                        
                     </div>
-                    <p class="text-gray-500 font-medium text-2xl mt-4">_______________</p>
-                    <p class="text-gray-100 text-2xl mt-2">83%</p>
+                    <p id="CPUvalue" class="text-gray-100 text-2xl mt-2">0%</p>
+                    <hr class="w-64 border-t border-gray-700 my-3">
+                    <p class="text-gray-100 text-base mt-2">Intel® Xeon® E5-2680 v4 x28</p>
+
+                    <script>
+                        const CPUvalue = 75;
+
+                        const CPUpath = document.getElementById("CPUgauge");
+                        const CPUtext = document.getElementById("CPUvalue");
+
+                        const CPUlength = CPUpath.getTotalLength();
+
+                        CPUpath.style.strokeDasharray = CPUlength;
+                        CPUpath.style.strokeDashoffset = CPUlength;
+
+                        const CPUoffset = CPUlength * (1 - CPUvalue / 100);
+
+                        CPUpath.style.strokeDashoffset = CPUoffset;
+                        CPUtext.textContent = CPUvalue + "%";
+                    </script>
+
                 </div>
 
-                <!-- Item example -->
-                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                <!-- RAM usage component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <p class="text-gray-100 font-bold text-2xl mb-2">RAM Usage:</p>
+                    <hr class="w-64 lg:w-80 border-t-2 border-gray-500 my-3">
                     <div>
-                        <div class="text-xl font-medium text-gray-50">Text</div>
-                        <p class="text-gray-100 ">Text text</p>
+
+                        <div class="flex flex-row items-center gap-4">
+
+                            <!-- AI use disclaimer: the SVG below was created using generative AI! -->
+                            <svg width="150" height="150" viewBox="0 0 150 150">
+                                <!-- Outline -->
+                                <circle
+                                cx="80"
+                                cy="80"
+                                r="60"
+                                fill="none"
+                                stroke="#1e293b"
+                                stroke-width="12"
+                                />
+                                <!-- Progress -->
+                                <circle
+                                id="RAMcircleGauge"
+                                cx="80"
+                                cy="80"
+                                r="60"
+                                fill="none"
+                                stroke="green"
+                                stroke-width="12"
+                                stroke-linecap="round"
+                                transform="rotate(-90 80 80)"
+                                class="transition-all duration-500"
+                                />
+                            </svg>
+
+                            <p class="text-gray-100"><span id="RAMUsed" style="color: #16a34a;">21.3GB</span> used<br>42.7GB free</p>
+
+                        </div>
+                        
                     </div>
+                    <p id="RAMvalue" class="text-gray-100 text-2xl mt-2">0%</p>
+                    <hr class="w-64 border-t border-gray-700 my-1 lg:my-3">
+                    <p class="text-gray-100 text-base mt-2">64GB DDR4-2800 ECC</p>
+
+                    <script>
+                        const RAMvalue = 49;
+
+                        const RAMcircle = document.getElementById("RAMcircleGauge");
+                        const RAMtext = document.getElementById("RAMvalue");
+                        const RAMusedText = document.getElementById("RAMUsed")
+
+                        const RAMradius = 60;
+                        const RAMcircumference = 2 * Math.PI * RAMradius;
+
+                        RAMcircle.style.strokeDasharray = RAMcircumference;
+
+                        const RAMoffset = RAMcircumference * (1 - RAMvalue / 100);
+                        RAMcircle.style.strokeDashoffset = RAMoffset;
+
+                        let RAMcolor;
+                        if (RAMvalue < 40) RAMcolor = "#16a34a";
+                        else if (RAMvalue < 70) RAMcolor = "#eab308";
+                        else RAMcolor = "#dc2626";
+                        RAMcircle.style.stroke = RAMcolor;
+                        RAMusedText.style.color = RAMcolor;
+
+                        RAMtext.textContent = RAMvalue + "%";
+                    </script>
+
                 </div>
 
                 <!-- Item example -->
