@@ -34,24 +34,21 @@
                     <h1 class="text-stone-50"><ion-icon name="speedometer-outline" class="mr-1"></ion-icon>Resource Monitor</h1>
                 </div>
                 <nav class="flex flex-col lg:flex-row items-center justify-center lg:basis-full">
-                    <a href="/index.html" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                    <a href="index.html" class="font-bold rounded-full px-3 py-2 text-sky-500 hover:bg-gray-100 hover:text-gray-900">
                         Home
                     </a>
-                    <a href="/xyz1.hzml" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
-                        Item2
+                    <a href="endpoint-management.html" class="font-bold rounded-full px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                        My Endpoints
                     </a>
-                    <a href="/xyz2.html" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
-                        Item3
-                    </a>
-                    <a href="/xyz3.html" class="font-bold rounded-lg px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
-                        Item4
+                    <a href="user-management.html" class="font-bold rounded-full px-3 py-2 text-stone-50 hover:bg-gray-100 hover:text-gray-900">
+                        Users
                     </a>
                 </nav>
                 <div class="flex items-center justify-center mb-2 lg:mb-0 lg:basis-64">
                     <div class="mx-auto flex max-w-sm items-center mt-3 lg:mt-0">
                     <div>
-                        <p class="text-stone-50">User Name
-                        <button class="rounded-full bg-sky-500 hover:bg-sky-700 ml-1 pl-3 pr-3 pt-1 pb-1">Log out</button></p>
+                        <p class="text-stone-50">username
+                        <a href="login.html"><button class="rounded-full bg-sky-500 hover:bg-sky-700 ml-1 pl-3 pr-3 pt-1 pb-1">Log out</button></a></p>
                     </div>
                 </div>
                 </div>
@@ -278,20 +275,61 @@
 
                 </div>
 
-                <!-- Item example -->
-                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
-                    <div>
-                        <div class="text-xl font-medium text-gray-50">Text</div>
-                        <p class="text-gray-100 ">Text text</p>
+                <!-- Docker containers component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <p class="text-gray-100 font-bold text-2xl mb-2">Docker Containers:</p>
+                    <hr class="w-64 lg:w-80 border-t-2 border-gray-500 my-3">
+                    <p class="text-gray-100 text-5xl font-bold">12</p>
+                    <p class="text-gray-500 text-sm mt-1">total containers</p>
+                    <hr class="w-64 border-t border-gray-700 my-3">
+                    <div class="flex flex-col gap-1 w-48">
+                        <div class="flex justify-between text-base">
+                            <span class="text-gray-400">Created</span>
+                            <span class="text-gray-100 font-medium">1</span>
+                        </div>
+                        <div class="flex justify-between text-base">
+                            <span class="text-gray-400">Running</span>
+                            <span style="color: #16a34a;" class="font-medium">7</span>
+                        </div>
+                        <div class="flex justify-between text-base">
+                            <span class="text-gray-400">Paused</span>
+                            <span style="color: #eab308;" class="font-medium">1</span>
+                        </div>
+                        <div class="flex justify-between text-base">
+                            <span class="text-gray-400">Restarting</span>
+                            <span style="color: #eab308;" class="font-medium">0</span>
+                        </div>
+                        <div class="flex justify-between text-base">
+                            <span class="text-gray-400">Exited</span>
+                            <span style="color: #dc2626;" class="font-medium">3</span>
+                        </div>
+                        <div class="flex justify-between text-base">
+                            <span class="text-gray-400">Dead</span>
+                            <span style="color: #dc2626;" class="font-medium">0</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Item example -->
-                <div class="flex justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
-                    <div>
-                        <div class="text-xl font-medium text-gray-50">Text</div>
-                        <p class="text-gray-100 ">Text text</p>
-                    </div>
+                <!-- Docker networks component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <p class="text-gray-100 font-bold text-2xl mb-2">Docker Networks:</p>
+                    <hr class="w-64 lg:w-80 border-t-2 border-gray-500 my-3">
+                    <p class="text-gray-100 text-5xl font-bold">5</p>
+                    <p class="text-gray-500 text-sm mt-1">total networks</p>
+                </div>
+
+                <!-- Docker volumes component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96">
+                    <p class="text-gray-100 font-bold text-2xl mb-2">Docker Volumes:</p>
+                    <hr class="w-64 lg:w-80 border-t-2 border-gray-500 my-3">
+                    <p class="text-gray-100 text-5xl font-bold">8</p>
+                    <p class="text-gray-500 text-sm mt-1">total volumes</p>
+                </div>
+
+                <!-- Add monitor component -->
+                <div class="flex flex-col justify-center items-center bg-sky-50/5 backdrop-blur-xs rounded-xl border border-dashed border-neutral-700 shadow-lg p-5 rounded-xl size-80 lg:size-96 hover:bg-sky-50/10 hover:border-neutral-500 transition-colors cursor-pointer">
+                    <ion-icon name="add-circle-outline" class="text-gray-500 size-12"></ion-icon>
+                    <p class="text-gray-500 text-base mt-3">Add Monitor</p>
                 </div>
 
             </div>

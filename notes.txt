@@ -1,0 +1,6 @@
+gradient-to-tr from-emerald-950 via-slate-950 to-purple-950
+
+
+
+
+md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4
